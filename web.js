@@ -3,6 +3,8 @@ var fs = require('fs');
 var app = express.createServer(express.logger());
 var htmlfile = "index.html";
 
+app.use(express.static(__dirname + '/static'));
+
 app.get('/', function(request, response) {
   var html=fs.readFileSync(htmlfile).toString();
   response.send(html);
